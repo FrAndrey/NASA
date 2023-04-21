@@ -15,6 +15,8 @@
 		C3F909FF29F34B3600E6B2CF /* NASATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F909FE29F34B3600E6B2CF /* NASATests.swift */; };
 		C3F90A0929F34B3600E6B2CF /* NASAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F90A0829F34B3600E6B2CF /* NASAUITests.swift */; };
 		C3F90A0B29F34B3600E6B2CF /* NASAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F90A0A29F34B3600E6B2CF /* NASAUITestsLaunchTests.swift */; };
+		C3F90A1D29F34F9300E6B2CF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F90A1C29F34F9300E6B2CF /* CollectionViewController.swift */; };
+		C3F90A1F29F34FEB00E6B2CF /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F90A1E29F34FEB00E6B2CF /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C3F90A0429F34B3600E6B2CF /* NASAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F90A0829F34B3600E6B2CF /* NASAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAUITests.swift; sourceTree = "<group>"; };
 		C3F90A0A29F34B3600E6B2CF /* NASAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C3F90A1C29F34F9300E6B2CF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		C3F90A1E29F34FEB00E6B2CF /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,11 @@
 		C3F909E629F34B3500E6B2CF /* NASA */ = {
 			isa = PBXGroup;
 			children = (
+				C3F90A1B29F34F7D00E6B2CF /* ViewModel */,
+				C3F90A1A29F34F7600E6B2CF /* View */,
+				C3F90A1929F34F6F00E6B2CF /* Model */,
+				C3F90A1829F34F6300E6B2CF /* Services */,
+				C3F90A1729F34F5D00E6B2CF /* Components */,
 				C3F909E729F34B3500E6B2CF /* AppDelegate.swift */,
 				C3F909E929F34B3500E6B2CF /* SceneDelegate.swift */,
 				C3F909EB29F34B3500E6B2CF /* ViewController.swift */,
@@ -122,6 +131,43 @@
 				C3F90A0A29F34B3600E6B2CF /* NASAUITestsLaunchTests.swift */,
 			);
 			path = NASAUITests;
+			sourceTree = "<group>";
+		};
+		C3F90A1729F34F5D00E6B2CF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C3F90A1829F34F6300E6B2CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C3F90A1E29F34FEB00E6B2CF /* ImageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C3F90A1929F34F6F00E6B2CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3F90A1A29F34F7600E6B2CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3F90A1C29F34F9300E6B2CF /* CollectionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3F90A1B29F34F7D00E6B2CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F90A1D29F34F9300E6B2CF /* CollectionViewController.swift in Sources */,
+				C3F90A1F29F34FEB00E6B2CF /* ImageManager.swift in Sources */,
 				C3F909EC29F34B3500E6B2CF /* ViewController.swift in Sources */,
 				C3F909E829F34B3500E6B2CF /* AppDelegate.swift in Sources */,
 				C3F909EA29F34B3500E6B2CF /* SceneDelegate.swift in Sources */,
