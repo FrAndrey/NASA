@@ -13,8 +13,27 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         super.viewDidLoad()
         
         collectionView.backgroundColor = .orange
+        
+        
+        createViews()
+        addSubviews()
+        createConstraints()
     }
     
     
+    
+    
+    
+    private func createViews(){
+        
+    }
+    
+    private func addSubviews(){
+        
+    }
+    
+    private func createConstraints() {
+        
+    }
     
 }
