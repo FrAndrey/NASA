@@ -20,7 +20,14 @@ class CollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = imageViewModel.title
             descriptionLabel.text = imageViewModel.description
-            // use SDWebImage libary for image, // imageViewModel.hyperlink
+            if let imageURL = imageViewModel?.hyperlink {
+                // SDWebImage library is used for image lazy loading
+                // https://github.com/SDWebImage/SDWebImage
+                // Once an image is loaded and displayed in UIImageView using sd_setImage
+                // method of the SDWebImage, it is cached locally on the device.
+                // Next time the same image is requested, it will be loaded from the cache
+                imageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Placeholder"), options: [.continueInBackground, .progressiveLoad])
+            }
         }
     }
     
@@ -38,7 +45,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         
         backgroundColor = lightGray
-
+        
         createViews()
         addSubviews()
         createConstraints()
@@ -49,12 +56,12 @@ class CollectionViewCell: UICollectionViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-
+        
         descriptionLabel = UILabel(frame: CGRect.zero)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
-
+        
         imageView = UIImageView(frame: CGRect.zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "Placeholder")
