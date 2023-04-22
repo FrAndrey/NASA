@@ -75,13 +75,21 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     private func createConstraints() {
-        
         let constraints = [
-            // add constraints
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: frame.width),
+            imageView.heightAnchor.constraint(equalToConstant: frame.height * 0.6),
+
+            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
     }
-    
 }
