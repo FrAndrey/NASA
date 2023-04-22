@@ -10,40 +10,33 @@ import UIKit
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, ImagesDataReceivedDelegate {
     
     private var imageManager = ImageManager()
+    private var alertController: UIAlertController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = .orange
-        
+        createAndConfigureViews()
         imageManager.delegate = self
-        
-        
-        createViews()
-        addSubviews()
-        createConstraints()
     }
     
-    // throw ui modal alert
     func handleRequestError() {
-        print("handler request error")
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func updateUI (image: Image) {
         let imageViewModel = ImageViewModel(image: image)
     }
     
-    
-    private func createViews(){
+
+    private func createAndConfigureViews(){
+        collectionView.backgroundColor = .orange
+        
+        alertController = UIAlertController(title: "Error", message: "There was an error with processing of NASA data.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        
         
     }
     
-    private func addSubviews(){
-        
-    }
-    
-    private func createConstraints() {
-        
-    }
     
 }

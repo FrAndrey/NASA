@@ -1,0 +1,6 @@
+framework module Pods_NASA_NASAUITests {
+  umbrella header "Pods-NASA-NASAUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

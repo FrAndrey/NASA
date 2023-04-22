@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CollectionViewCell: UICollectionViewCell {
     
@@ -14,6 +15,14 @@ class CollectionViewCell: UICollectionViewCell {
     var imageView:UIImageView!
     
     let lightGray = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+    
+    var imageViewModel: ImageViewModel! {
+        didSet {
+            titleLabel.text = imageViewModel.title
+            descriptionLabel.text = imageViewModel.description
+            // use SDWebImage libary for image, // imageViewModel.hyperlink
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,20 +44,37 @@ class CollectionViewCell: UICollectionViewCell {
         createConstraints()
     }
     
-    func configureCell() {
-        
-    }
-    
     private func createViews(){
-        
+        titleLabel = UILabel(frame: CGRect.zero)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+
+        descriptionLabel = UILabel(frame: CGRect.zero)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textAlignment = .center
+
+        imageView = UIImageView(frame: CGRect.zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "Placeholder")
+        imageView.contentMode = .scaleAspectFit
     }
     
     private func addSubviews(){
-        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(imageView)
+        contentView.addSubview(descriptionLabel)
     }
     
     private func createConstraints() {
         
+        let constraints = [
+            // add constraints
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
 }
