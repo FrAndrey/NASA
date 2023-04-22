@@ -135,7 +135,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     func updateUI (image: Image) {
         let imageViewModel = ImageViewModel(image: image)
-        
         imageViewModels.append(imageViewModel)
         
         DispatchQueue.main.async {
@@ -183,7 +182,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             self.navigationItem.rightBarButtonItem = self.clearButton
         }
     }
-    
+
     private func createAndConfigureViews(){
         collectionView?.register(CollectionViewCell.self, forCellWithReuseIdentifier: collectionCellIdentifier)
         collectionView.backgroundColor = .white
