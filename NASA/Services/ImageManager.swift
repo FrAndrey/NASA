@@ -9,7 +9,7 @@ import UIKit
 
 protocol ImagesDataReceivedDelegate {
     func updateUI(image: Image)
-    func handleRequestDataError()
+    func handleRequestError()
 }
 
 struct ImageManager {
@@ -19,6 +19,35 @@ struct ImageManager {
     
     func fetchImagesMetaData(userInput: String, page: Int) {
         guard let url = URL(string: createCompoundUrlString(userInput: userInput, currentPage: page)) else {return}
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+
+            if error != nil {
+                delegate?.handleRequestError()
+                return
+            }
+
+            guard let safeData = data else { return }
+            
+            let results = try? JSONDecoder().decode(ImageCollection.self, from: safeData)
+            if let capturedResults = results {
+                for item in capturedResults.collection.items {
+                    for imageMetaData in item.data {
+                        for link in item.links {
+                            let hyperlink = link.href
+                            let title = imageMetaData.title
+                            let description = imageMetaData.description
+                            
+                            let image = Image(hyperlink: hyperlink, description: description, title: title)
+                            self.delegate?.updateUI(image: image)
+                        }
+                    }
+                }
+            }
+            else {
+                delegate?.handleRequestError()
+            }
+        }
+        .resume()
     }
     
     private func createCompoundUrlString(userInput: String, currentPage: Int) -> String {
